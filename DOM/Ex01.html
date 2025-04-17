@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 01</title>
+</head>
+<body>
+    <header>
+        <h1>Lista de tarefas</h1>
+    </header>
+    <main>
+        <input type="text" name="" id="tarefa" placeholder="Digite uma Tarefa">
+        <button onclick="adicionarTarefa()">Adicionar</button>
+
+    <ul id="listaDeTarefas">
+        <li>Item 1</li>
+        <!-- <li>Item 2</li>
+        <li>Item 3</li> -->
+    </ul>
+    </main>
+    <footer></footer>
+</body>
+
+<script>
+    function adicionarTarefa(){
+    //cadastrar um item na lista:
+        //1 - preciso ter o valor escrito da tarefa pelo meu usuario
+    let valorInput = document.getElementById("tarefa").value;
+
+    //console.log(ValorInput);
+        //2 - criar a tarefa na lista
+    let itemLista = document.createElement("li");
+    itemLista.innerText = valorInput;
+
+    //estarei cadastrando um novo item ABAIXO do anterior:
+    document.getElementById("listaDeTarefas").appendChild(itemLista);
+
+    //botao de excluir
+    let botaoExcluir = document.createElement("button");
+    botaoExcluir.innerText = "Remover item";
+
+    itemLista.appendChild(botaoExcluir);
+    //4 - assim que eu clicar no  botao excluir, ele ira sair junto com o item
+    botaoExcluir.onclick = function(){
+        itemLista.remove();
+    }
+
+    document.getElementById("tarefa").value = "";
+
+    }
+</script>
+</html>
